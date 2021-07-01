@@ -1,0 +1,18 @@
+{{- $friends := .Site.Params.widgets.social.friends }}
+{{- if gt (len $friends) 0 }}
+<div class="widget-taglist widget">
+	<h4 class="widget__title">{{ "friends" }}</h4>
+	<div class="widget__content">
+		{{ range $friends }}
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="{{ .title }}" rel="noopener noreferrer" href="{{ .url }}" target="_blank">
+				{{- if .icon }}
+					{{ partial .icon (dict "class" "widget-social__link-icon") }}
+				{{- end }}
+				<span>{{ .title }}</span>
+			</a>
+		</div>
+		{{ end }}
+	</div>
+</div>
+{{- end }}
